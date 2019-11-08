@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://www.nuget.org/packages/FluiTec.AppFx.DataProtection/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/FluiTec/FluiTec.AppFx.DataProtection</RepositoryUrl>
+    <NeutralLanguage>de</NeutralLanguage>
+    <PostBuildEvent></PostBuildEvent>
+    <PreBuildEvent></PreBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluiTec.AppFx.Options" Version="1.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FluiTec.AppFx.DataProtection.LiteDb\FluiTec.AppFx.DataProtection.LiteDb.csproj" />
+    <ProjectReference Include="..\FluiTec.AppFx.DataProtection.Mssql\FluiTec.AppFx.DataProtection.Mssql.csproj" />
+    <ProjectReference Include="..\FluiTec.AppFx.DataProtection.Mysql\FluiTec.AppFx.DataProtection.Mysql.csproj" />
+    <ProjectReference Include="..\FluiTec.AppFx.DataProtection.Pgsql\FluiTec.AppFx.DataProtection.Pgsql.csproj" />
+    <ProjectReference Include="..\FluiTec.AppFx.DataProtection\FluiTec.AppFx.DataProtection.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
