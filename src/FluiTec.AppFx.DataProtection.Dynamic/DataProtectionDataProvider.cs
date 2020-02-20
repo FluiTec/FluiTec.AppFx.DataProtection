@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using FluiTec.AppFx.DataProtection.Mysql;
 using FluiTec.AppFx.DataProtection.Pgsql;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace FluiTec.AppFx.DataProtection.Dynamic
 {
@@ -55,7 +56,7 @@ namespace FluiTec.AppFx.DataProtection.Dynamic
             internal static IDataProtectionDataService ProvideService(IConfigurationRoot configuration)
             {
                 if (_options == null)
-                    _options = configuration.GetConfiguration<MssqlDapperServiceOptions>();
+                    _options = configuration.Configure<MssqlDapperServiceOptions>(new ServiceCollection());
                 return new MssqlDapperDataProtectionDataService(_options);
             }
         }
@@ -67,7 +68,7 @@ namespace FluiTec.AppFx.DataProtection.Dynamic
             internal static IDataProtectionDataService ProvideService(IConfigurationRoot configuration)
             {
                 if (_options == null)
-                    _options = configuration.GetConfiguration<PgsqlDapperServiceOptions>();
+                    _options = configuration.Configure<PgsqlDapperServiceOptions>(new ServiceCollection());
                 return new PgsqlDapperDataProtectionDataService(_options);
             }
         }
@@ -79,7 +80,7 @@ namespace FluiTec.AppFx.DataProtection.Dynamic
             internal static IDataProtectionDataService ProvideService(IConfigurationRoot configuration)
             {
                 if (_options == null)
-                    _options = configuration.GetConfiguration<MysqlDapperServiceOptions>();
+                    _options = configuration.Configure<MysqlDapperServiceOptions>(new ServiceCollection());
                 return new MysqlDapperDataProtectionDataService(_options);
             }
         }
@@ -91,7 +92,7 @@ namespace FluiTec.AppFx.DataProtection.Dynamic
             internal static IDataProtectionDataService ProvideService(IConfigurationRoot configuration)
             {
                 if (_options == null)
-                    _options = configuration.GetConfiguration<LiteDbServiceOptions>();
+                    _options = configuration.Configure<LiteDbServiceOptions>(new ServiceCollection());
                 return new LiteDbDataProtectionDataService(_options);
             }
         }

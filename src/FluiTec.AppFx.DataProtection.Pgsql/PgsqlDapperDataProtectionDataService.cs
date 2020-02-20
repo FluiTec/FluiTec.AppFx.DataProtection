@@ -47,7 +47,7 @@ namespace FluiTec.AppFx.DataProtection.Pgsql
         #endregion
 
         #region Properties
-
+        
         /// <summary>	The name. </summary>
         public override string Name => "PgsqlDapperDataProtectionDataService";
 

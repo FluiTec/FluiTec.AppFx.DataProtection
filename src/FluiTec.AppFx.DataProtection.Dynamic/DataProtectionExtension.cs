@@ -16,7 +16,7 @@ namespace FluiTec.AppFx.DataProtection.Dynamic
         /// <returns>An IServiceCollection.</returns>
         public static IServiceCollection ConfigureDataProtectionDataService(this IServiceCollection services, IConfigurationRoot configuration, bool migrate = true)
         {
-            var provider = new DataProtectionDataProvider(configuration.GetConfiguration<DataProtectionOptions>());
+            var provider = new DataProtectionDataProvider(configuration.Configure<DataProtectionOptions>(services));
             services.AddScoped(p => provider.GetDataService(configuration));
 
             if (migrate)
